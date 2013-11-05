@@ -28,10 +28,10 @@ describe 'sphero' do
     Timecop.travel(start + 3.seconds) do
       robot.sphero.expects(:roll)
       sleep 0.05
-      Timecop.travel(start + 6.seconds) do
-        robot.sphero.expects(:roll)
-        sleep 0.05
-      end
+    end
+    Timecop.travel(start + 6.seconds) do
+      robot.sphero.expects(:roll)
+      sleep 0.05
     end
   end
 end
