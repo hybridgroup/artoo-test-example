@@ -21,17 +21,17 @@ describe 'sphero' do
   it 'receives collision event' do
     robot.expects(:contact)
     robot.sphero.publish("collision", "clunk")
-    sleep 0.05
+    process_messages
   end
 
   it 'must roll every 3 seconds' do
     Timecop.travel(start + 3.seconds) do
       robot.sphero.expects(:roll)
-      sleep 0.05
+      process_messages
     end
     Timecop.travel(start + 6.seconds) do
       robot.sphero.expects(:roll)
-      sleep 0.05
+      process_messages
     end
   end
 end

@@ -11,3 +11,8 @@ Celluloid.logger = nil
 # our chosen mocking/stubbing gems
 require 'mocha/setup'
 require 'timecop'
+
+# allows Celluloid actors a little time to process messages in their mailboxes
+def process_messages
+  sleep 0.05
+end
